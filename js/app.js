@@ -11,29 +11,50 @@ $(document).ready(function(){
   	$("a.close").click(function(){
   		$(".overlay").fadeOut(1000);
   	});
-  	/*
-  	var randNumber = function(num){
-  		var num=Math.floor((Math.random() * 100) + 1);
+  	
+    var num=0
+    var enteredNum= 0;
+    var guessCount=0
+    var hint = "ABC"
 
+  	var randNumber = function(){
+  		num=Math.floor((Math.random() * 100) + 1);
+  	};
+    var feedbackHint = function(hint){
+      $("#feedback").html(hint);
+    };
+
+
+    
+  	var guessGame=function(enteredNum,randNumber){
+  		if(enteredNum>num){
+  			 hint = "High";
+         feedbackHint(hint);
+  		}
+  		else if(enteredNum<num){
+  			hint="low";
+        feedbackHint(hint);
+  		}
+  		else if(enteredNum=num){
+  			hint="Same";
+        feedbackHint(hint);
+  		}
   	};
 
-  	var guessGame=function(enteredNum,randNumber){
-  		if(enteredNum>randNumber){
-  			var answer = "Higher";
-  		};
-  		else if(enteredNum<randNumber){
-  			answer="lower";
-  		};
-  		else if{enteredNum=randNumber}{
-  			answer="Same";
-  		};
-  	};*/
 
-  	$(".button").click(function(event){
-  		console.log("clicked");
-  		event.PreventDefault();
-  		var enteredNum=$(".userGuess").val();
-  		console.log(enteredNum);
+    randNumber();
+
+  	$(".button").click(function(e){
+  		e.preventDefault();
+      enteredNum= $("#userGuess").val();
+      console.log(enteredNum);
+      console.log(num);
+      guessCount++;
+      guessGame(enteredNum,num);
+  		console.log(hint);
+      $("#count").html(guessCount);
+      $("<li>"+enteredNum+"</li>").appendTo("#guessList")
+
   	
   	});
 
