@@ -21,22 +21,12 @@ $(document).ready(function(){
     var htmlClone = $("body").clone();
     var StoredNum =[];
     var dupCheck = "good";
+    var wonCheck="notWon";
+
 
     var clearDupCheck=function(){
       dupCheck = "good";
     };
-
-
-    $(".new").click(function(e){
-      $("body").replaceWith(htmlClone);
-      num=0;
-      enteredNum= 0;
-      guessCount=0;
-      hint = "ABC";
-      htmlClone = $("body").clone();
-      StoredNum =[];
-      clearDupCheck();
-    });
 
     var randNumber = function(){
       num=Math.floor((Math.random() * 100) + 1);
@@ -45,6 +35,8 @@ $(document).ready(function(){
     var feedbackHint = function(hotCold){
       $("#feedback").html(hotCold);
     };
+
+
 
     var guessGame=function(enteredNum,num){
       if(Math.abs(enteredNum-num)>50){
@@ -70,28 +62,33 @@ $(document).ready(function(){
       else if (Math.abs(enteredNum-num)==0){
          hotCold = "Congradulation! You got the number!";
          feedbackHint(hotCold);
+         wonCheck="Won"
       }
     };
 
 
 
-    randNumber();
 
+    randNumber();
+    console.log(num);
     $(".button").click(function(e){
       e.preventDefault();
-      
+      //return.false;  
       enteredNum= $("#userGuess").val();
       clearDupCheck();
-
-      if(isNaN(enteredNum)){
+     if(enteredNum=""){
+        alert("Please Enter a Value");
+      }
+      else if(isNaN(enteredNum)){
         alert("Entered is not a number");
-
       }
       else if(enteredNum > 100){
         alert("Number bigger than 100!");
       }
+      else if (wonCheck==="Won"){
+            alert("You already Won!");
+        }
       else{
-
         for(var i=0; i<StoredNum.length; i++){
           if(StoredNum[i] === enteredNum){
             dupCheck="exist";
@@ -113,8 +110,17 @@ $(document).ready(function(){
         
         //console.log(StoredNum);
       };
-
-
+      
+    $(".new").click(function(e){
+      $("body").replaceWith(htmlClone);
+      num=0;
+      enteredNum= 0;
+      guessCount=0;
+      hint = "ABC";
+      htmlClone = $("body").clone();
+      StoredNum =[];
+      clearDupCheck();
+    });
 
     });
 
