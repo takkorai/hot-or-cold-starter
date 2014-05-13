@@ -76,10 +76,11 @@ $(document).ready(function(){
       //return.false;  
       enteredNum= $("#userGuess").val();
       clearDupCheck();
+      /*
      if(enteredNum=""){
         alert("Please Enter a Value");
-      }
-      else if(isNaN(enteredNum)){
+      }*/
+      if(isNaN(enteredNum)){
         alert("Entered is not a number");
       }
       else if(enteredNum > 100){
