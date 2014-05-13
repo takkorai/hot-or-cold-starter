@@ -73,14 +73,14 @@ $(document).ready(function(){
     console.log(num);
     $(".button").click(function(e){
       e.preventDefault();
-      //return.false;  
+      //return false;  
       enteredNum= $("#userGuess").val();
       clearDupCheck();
-      /*
-     if(enteredNum=""){
+      
+     if(enteredNum=''){
         alert("Please Enter a Value");
-      }*/
-      if(isNaN(enteredNum)){
+      }
+      else if(isNaN(enteredNum)){
         alert("Entered is not a number");
       }
       else if(enteredNum > 100){
