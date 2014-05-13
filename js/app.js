@@ -35,8 +35,12 @@ $(document).ready(function(){
     var feedbackHint = function(hotCold){
       $("#feedback").html(hotCold);
     };
-
-
+    var blankCheck = function(enteredNum){
+      if(enteredNum===''){
+        alert("Please Enter a Value");
+        return false;
+      }
+    }
 
     var guessGame=function(enteredNum,num){
       if(Math.abs(enteredNum-num)>50){
@@ -76,12 +80,15 @@ $(document).ready(function(){
       //return false;  
       enteredNum= $("#userGuess").val();
       clearDupCheck();
-      
-     if(enteredNum===''){
+      blankCheck(enteredNum);
+     /*if(enteredNum===''){
         alert("Please Enter a Value");
+        return false;
       }
-      else if(isNaN(enteredNum)){
+
+      else*/ if(isNaN(enteredNum)){
         alert("Entered is not a number");
+        return false;
       }
       else if(enteredNum > 100){
         alert("Number bigger than 100!");
