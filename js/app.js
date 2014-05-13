@@ -77,7 +77,7 @@ $(document).ready(function(){
       enteredNum= $("#userGuess").val();
       clearDupCheck();
       
-     if(enteredNum=''){
+     if(enteredNum===''){
         alert("Please Enter a Value");
       }
       else if(isNaN(enteredNum)){
