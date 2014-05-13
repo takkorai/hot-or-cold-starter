@@ -43,6 +43,7 @@ $(document).ready(function(){
         alert("Please Enter a Value");
         return false;
       }
+      return true;
     };
     //Checks if entered number is a number//
     var numCheck =function(enteredNum){
@@ -50,6 +51,7 @@ $(document).ready(function(){
       alert("Entered is not a number");
       return false;
       }
+      return true;
     };
 
     var guessGame=function(enteredNum,num){
@@ -90,8 +92,10 @@ $(document).ready(function(){
       //return false;  
       enteredNum= $("#userGuess").val();
       clearDupCheck();
-      blankCheck(enteredNum);
-      numCheck(enteredNum);
+      //blankCheck(enteredNum);
+      //numCheck(enteredNum);
+
+      if(blankCheck(enteredNum) && blankCheck(enteredNum) ){
      /*if(enteredNum===''){
         alert("Please Enter a Value");
         return false;
@@ -140,8 +144,11 @@ $(document).ready(function(){
       StoredNum =[];
       clearDupCheck();
     });
+    }
+    else{};
 
-    });
+
+  });
 
 });
 
