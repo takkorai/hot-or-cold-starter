@@ -35,12 +35,16 @@ $(document).ready(function(){
     var feedbackHint = function(hotCold){
       $("#feedback").html(hotCold);
     };
+
+    /* Error Checks*/
+    //Checks if entered number is blank//
     var blankCheck = function(enteredNum){
       if(enteredNum===''){
         alert("Please Enter a Value");
         return false;
       }
     };
+    //Checks if entered number is a number//
     var numCheck =function(enteredNum){
       if(isNaN(enteredNum)){
       alert("Entered is not a number");
