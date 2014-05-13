@@ -40,13 +40,13 @@ $(document).ready(function(){
         alert("Please Enter a Value");
         return false;
       }
-    }
+    };
     var numCheck =function(enteredNum){
       if(isNaN(enteredNum)){
       alert("Entered is not a number");
       return false;
       }
-    }
+    };
 
     var guessGame=function(enteredNum,num){
       if(Math.abs(enteredNum-num)>50){
