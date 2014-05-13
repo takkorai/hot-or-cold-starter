@@ -41,6 +41,12 @@ $(document).ready(function(){
         return false;
       }
     }
+    var numCheck =function(enteredNum){
+      if(isNaN(enteredNum)){
+      alert("Entered is not a number");
+      return false;
+      }
+    }
 
     var guessGame=function(enteredNum,num){
       if(Math.abs(enteredNum-num)>50){
@@ -81,16 +87,17 @@ $(document).ready(function(){
       enteredNum= $("#userGuess").val();
       clearDupCheck();
       blankCheck(enteredNum);
+      numCheck(enteredNum);
      /*if(enteredNum===''){
         alert("Please Enter a Value");
         return false;
       }
 
-      else*/ if(isNaN(enteredNum)){
+      if(isNaN(enteredNum)){
         alert("Entered is not a number");
         return false;
       }
-      else if(enteredNum > 100){
+      else else*/ if(enteredNum > 100){
         alert("Number bigger than 100!");
       }
       else if (wonCheck==="Won"){
